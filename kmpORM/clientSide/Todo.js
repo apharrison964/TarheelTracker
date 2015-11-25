@@ -1,4 +1,4 @@
-
+//KMP
 var Todo = function(todo_json) {
     this.id = todo_json.id;
     this.title = todo_json.title;
