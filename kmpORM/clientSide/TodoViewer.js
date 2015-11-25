@@ -1,5 +1,5 @@
 var url_base = "http://wwwp.cs.unc.edu/Courses/comp426-f15/kmp/lec22/server-side";
-
+//KMP
 $(document).ready(function () {
 
 	$.ajax(url_base + "/todo.php",
