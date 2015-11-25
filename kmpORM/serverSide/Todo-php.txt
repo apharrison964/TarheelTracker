@@ -8,7 +8,7 @@ $path_components = explode('/', $_SERVER['PATH_INFO']);
 // First element of path_components is always defined and always empty.
 
 if ($_SERVER['REQUEST_METHOD'] == "GET") {
-  // GET means either instance look up, index generation, or deletion
+  // GET means either instance look up, index generation,  or deletion
 
   // Following matches instance URL in form
   // /todo.php/<id>
