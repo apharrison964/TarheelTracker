@@ -1,7 +1,7 @@
 <?php
 
 date_default_timezone_set('America/New_York');
-
+//KMP
 $conn = new mysqli("classroom.cs.unc.edu", "kmp", "comp426", "comp426fall14db");
 
 $conn->query("drop table if exists Todo");
