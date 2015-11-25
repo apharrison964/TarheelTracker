@@ -12,7 +12,7 @@ $(document).ready(function () {
     });
 
 var form_submit_handler = function (e) {
-    e.preventDefault();
+    e.preventDefault(); 
     e.stopPropagation();
 
     // Collect parameter name/value pairs as data
