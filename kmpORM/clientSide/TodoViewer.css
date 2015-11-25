@@ -1,0 +1,11 @@
+#todo_list {
+    height: 350px;
+    width: 400px;
+    border: thin solid black;
+    overflow: auto;
+}
+
+div.todo:nth-child(odd) {
+    background: #aaffaa;
+}
+    
