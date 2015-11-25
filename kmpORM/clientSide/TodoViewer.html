@@ -1,0 +1,29 @@
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Todo Viewer</title>
+    <link rel="stylesheet" type="text/css" href="TodoViewer.css">
+    <script src="/Courses/comp426-f15/jquery-1.11.3.js"></script>
+    <script src="Todo.js"></script>
+    <script src="TodoViewer.js"></script>
+</head>
+
+<body>
+  <div id="todo_list">
+  </div>
+
+  <div id="new_todo_div">
+    <form id="new_todo_form">
+      <input name=title type=text><br>
+      <textarea name='note'></textarea><br>
+      Project: <input name=project type=text><br>
+      Due Date: <input name=due_date type=text><br>
+      Priority: <input name=priority type=text><br>
+      Complete <input type=checkbox name=complete value=1><br>
+      <button type=submit>Create</button>
+    </form>
+  </div>
+</body>
+
+</html>
