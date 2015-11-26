@@ -12,7 +12,7 @@ class Todo
   private $complete;
 
   public static function create($title, $note, $project, $due_date, $priority, $complete) {
-    $mysqli = new mysqli("classroom.cs.unc.edu", "kmp", "comp426", "comp426fall14db");
+    $mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
 
     if ($due_date == null) {
       $dstr = "null";
@@ -42,7 +42,7 @@ class Todo
   }
 
   public static function findByID($id) {
-    $mysqli = new mysqli("classroom.cs.unc.edu", "kmp", "comp426", "comp426fall14db");
+    $mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
 
     $result = $mysqli->query("select * from Todo where id = " . $id);
     if ($result) {
@@ -76,7 +76,7 @@ class Todo
   }
 
   public static function getAllIDs() {
-    $mysqli = new mysqli("classroom.cs.unc.edu", "kmp", "comp426", "comp426fall14db");
+    $mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
 
     $result = $mysqli->query("select id from Todo");
     $id_array = array();
@@ -163,7 +163,7 @@ class Todo
   }
 
   private function update() {
-    $mysqli = new mysqli("classroom.cs.unc.edu", "kmp", "comp426", "comp426fall14db");
+    $mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
 
     if ($this->due_date == null) {
       $dstr = "null";
@@ -192,7 +192,7 @@ class Todo
   }
 
   public function delete() {
-    $mysqli = new mysqli("classroom.cs.unc.edu", "kmp", "comp426", "comp426fall14db");
+    $mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
     $mysqli->query("delete from Todo where id = " . $this->id);
   }
 
