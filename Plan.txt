@@ -1,0 +1,7 @@
+We can have a text box, the user can enter the name of the opponent team, and press enter. When the enter button is pressed, the stats
+will be pulled up
+
+Text box can go under the carousel, and then the requested info can be loaded in the same place. Maybe everything could be displayed in 
+a table. If time, we could add the logo of the opposing team and UNC's to the side of the table that each represents
+
+Carousel can have instructions and pictures of current/past UNC games/players
