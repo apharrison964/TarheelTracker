@@ -4,6 +4,9 @@
 
 body {
   padding-bottom: 40px;
+  /* It isn't showing the background when I refresh it, this might be the wrong place to do it
+    -Alle
+  */
   color: #4793C9;
 }
 
