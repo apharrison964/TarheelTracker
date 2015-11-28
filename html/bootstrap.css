@@ -84,6 +84,7 @@ sup {
 sub {
   bottom: -.25em;
 }
+
 img {
   border: 0;
 }
@@ -1087,7 +1088,7 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
-  background-color: #b8e0fd;
+  background-color: #7bafd4;
 }
 input,
 button,

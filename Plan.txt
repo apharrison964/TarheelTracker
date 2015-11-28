@@ -5,3 +5,9 @@ Text box can go under the carousel, and then the requested info can be loaded in
 a table. If time, we could add the logo of the opposing team and UNC's to the side of the table that each represents
 
 Carousel can have instructions and pictures of current/past UNC games/players
+
+Color References for the page:
+    #7bafd4 - Carolina Blue
+    #de9090 - Accent Color Red
+    #b8e0fd - Light Blue
+    #f4f4f4 - Light Grey 
