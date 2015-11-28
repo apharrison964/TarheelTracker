@@ -2,6 +2,7 @@ function insertAfter( referenceNode, newNode ) {
     referenceNode.parentNode.insertBefore( newNode, referenceNode.nextSibling );
 }
 
+// TODO: function not working, pressing submit just resets the page
 function makeTable() {
 	var table = document.createElement("TABLE");
 	table.setAttribute("id", "createdTable");
