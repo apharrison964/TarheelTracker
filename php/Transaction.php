@@ -8,8 +8,8 @@ class Transaction
 	private $price;
 
 	public static function create($player, $owner, $price) {
-		$mysqli = new mysqli("classroom.cs.unc.edu", "kmp", 
-                                     "comp426", "comp426fall14db");
+		$mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", 
+                                     "CH@ngemenow99Please!apharri3", "apharri3db");
 		$result = $mysqli->query("insert into Transaction values (0, " . 
 			                     $player . ", " . $owner . ", " . $price . ")");
 		if ($result) {
@@ -20,7 +20,7 @@ class Transaction
 	}
 
 	public static function findByID($id) {
-		$mysqli = new mysqli("classroom.cs.unc.edu", "kmp", "comp426", "comp426fall14db");
+		$mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
 		$result = $mysqli->query("select * from Transaction where id = " . $id);
 		if ($result) {
 			if ($result->num_rows == 0){
@@ -49,7 +49,7 @@ class Transaction
 			}
 			$direction = "ASC";
 		}
-		$mysqli = new mysqli("classroom.cs.unc.edu", "kmp", "comp426", "comp426fall14db");
+		$mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
 		$result = $mysqli->query("select id from Transaction order by id " . $direction);
 		$transactions = array();
 
@@ -104,7 +104,7 @@ class Transaction
 	}
 
 	private function update() {
-		$mysqli = new mysqli("classroom.cs.unc.edu", "kmp", "comp426", "comp426fall14db");
+		$mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
 		$result = $mysqli->query("update Transaction set price = " . $this->price . " where id = " . $this->id);
 		return $result;
 	}
