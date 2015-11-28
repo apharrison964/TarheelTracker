@@ -1,5 +1,6 @@
-function insertAfter( referenceNode, newNode ) {
-    referenceNode.parentNode.insertBefore( newNode, referenceNode.nextSibling );
+// This function may not be working right
+function insertAfter(referenceNode, newNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
 
 // TODO: function not working, pressing submit just resets the page
