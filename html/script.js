@@ -11,10 +11,10 @@ function makeTable() {
 	document.body.appendChild(table);
 	
 	var row = document.createElement("TR");
+	alert("Testing");
 	row.setAttribute("id", "row");
 	document.getElementById("createdTable").appendChild(row);
 	
-	alert("Testing");
 	var column = document.createElement("TD");
 	column.setAttribute("id", "column");
 	document.getElementById("createdTable").appendChild(column);
