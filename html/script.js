@@ -9,11 +9,12 @@ function makeTable() {
 	table.setAttribute("id", "createdTable");
 	table.border = "1";
 	document.body.appendChild(table);
-	alert("It reached where it is about to create the row");
+	
 	var row = document.createElement("TR");
 	row.setAttribute("id", "row");
 	document.getElementById("createdTable").appendChild(row);
 	
+	alert("Testing");
 	var column = document.createElement("TD");
 	column.setAttribute("id", "column");
 	document.getElementById("createdTable").appendChild(column);
