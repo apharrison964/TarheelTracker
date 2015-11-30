@@ -4,16 +4,16 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-backgroundCB {
+body.backgroundCB {
   background-color: #7bafd4; /* Carolina Blue */
 }
-backgroundR {
+body.backgroundR {
   background-color: #de9090; /* Accent Red */
 }
-backgroundLB {
+body.backgroundLB {
   background-color: #b8e0fd; /* Light Blue */
 }
-backgroundG {
+body.backgroundG {
   background-color: #f4f4f4; /* Light Grey */
 }
 
