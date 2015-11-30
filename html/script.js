@@ -10,6 +10,7 @@ function makeTable() {
 	table.border = "1";
 	document.body.appendChild(table);
 	
+	// Code after this comment isn't being reached
 	var row = document.createElement("TR");
 	alert("Testing");
 	row.setAttribute("id", "row");
