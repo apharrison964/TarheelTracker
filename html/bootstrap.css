@@ -6276,8 +6276,14 @@ button.close {
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
   line-height: 1;
-  opacity: 0.4;
-  filter: alpha(opacity=40); /* For IE8 and earlier */
+  opacity: 1.0;
+  filter: alpha(opacity=100); /* For IE8 and earlier */
+}
+.carousel-inner > .item > img:hover,
+.carousel-inner > .item > a > img:hover {
+  line-height: 1;
+  opacity: 1.0;
+  filter: alpha(opacity=100); /* For IE8 and earlier */
 }
 @media all and (transform-3d), (-webkit-transform-3d) {
   .carousel-inner > .item {
