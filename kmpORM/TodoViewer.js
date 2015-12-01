@@ -1,5 +1,5 @@
 var url_base = "http://wwwp.cs.unc.edu/Courses/comp426-f15/kmp/lec22/server-side";
-//KMP
+// JS isn't rendering because the URL base is connected to KMP's, can we do it with the previewer URL?
 $(document).ready(function () {
 
 	$.ajax(url_base + "/todo.php",
