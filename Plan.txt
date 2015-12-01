@@ -11,6 +11,3 @@ Color References for the page:
     #de9090 - Accent Color Red
     #b8e0fd - Light Blue
     #f4f4f4 - Light Grey 
-
-I have a test branch where I am trying to use the example AJAX/ORM code to work on that part, I didn't do it in the master branch so I 
-didn't mess up the work
