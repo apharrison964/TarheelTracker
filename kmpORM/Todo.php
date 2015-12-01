@@ -1,4 +1,5 @@
 <?php
+// Might not need since we are using API for db
 date_default_timezone_set('America/New_York');
 //KMP
 class Todo
