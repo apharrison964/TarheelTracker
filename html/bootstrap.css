@@ -97,11 +97,9 @@ sup {
 sub {
   bottom: -.25em;
 }
-
 img {
-  border: 0;
+  border: 4;
 }
-
 img:hover {
   border: 0;
   opacity: 1.0;
