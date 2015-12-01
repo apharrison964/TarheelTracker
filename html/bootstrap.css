@@ -98,7 +98,7 @@ sub {
   bottom: -.25em;
 }
 img {
-  border: 4;
+  border: 0;
 }
 img:hover {
   border: 0;
