@@ -1,5 +1,5 @@
 <?php
-
+// Need to change the values, but this shouldn't be bad (but we aren't using that db)
 date_default_timezone_set('America/New_York');
 
 $conn = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
