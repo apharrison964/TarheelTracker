@@ -6277,7 +6277,7 @@ button.close {
   opacity:0.4;
   filter: alpha(opacity=40); /* For IE8 and earlier */
 }
-.title-slide,
+.carousel-inner > .item > img:hover,
 .carousel-inner > .item > a > img:hover {
   line-height: 1;
   opacity: 1.0;
