@@ -32,7 +32,7 @@
     <!-- Script -->
     <script type="text/javascript" src="../js/bootstrap.js"></script>
     <script type="text/javascript" src="../js/jQueryLibrary.js"></script>
-  
+    <script type="text/javascript" src="../js/bouncingball.js"></script>
   </head>
 <!-- NAVBAR
 ================================================== -->
@@ -42,6 +42,10 @@
     ================================================== -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner" role="listbox">
+        <input id="ballButton" onclick="checkButton()" type="button" value="Animate Basketball" />
+        <div id="basketball" style="position: relative;">
+          <img src="images/ball.png" alt="Basketball" />
+        </div>
         <div class="item active">
           <img class="first-slide" src="images/banner.png" alt="First slide">
           <div class="container">
