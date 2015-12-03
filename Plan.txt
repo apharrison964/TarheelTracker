@@ -11,3 +11,5 @@ Color References for the page:
     #de9090 - Accent Color Red
     #b8e0fd - Light Blue
     #f4f4f4 - Light Grey 
+    
+    What are we doing for the JS? I can do that, if we just decide what we are using it for.
