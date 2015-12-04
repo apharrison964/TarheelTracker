@@ -191,7 +191,9 @@ class Player {
 	}
 
 	public function getJSON() {
-		$json_obj = array('id' => $this -> id, 'title' => $this -> title, 'note' => $this -> note, 'project' => $this -> project, 'due_date' => $dateString, 'priority' => $this -> priority, 'complete' => $this -> complete);
+		$json_obj = array('FirstName' => $this -> firstName, 'LastName' => $this -> lastName, 'Position' => $this -> position, 'FirstSeason' => $this -> firstSeason, 
+						  'LastSeason' => $this -> lastSeason, 'HeightFeet' => $this -> heightFeet, 'HeightInches' => $this -> heightInches, 
+						  'Weight' => $this -> weight, 'College' => $this -> college, 'BirthDate' => $this -> birthDate);
 		return json_encode($json_obj);
 	}
 
