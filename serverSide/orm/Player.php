@@ -170,23 +170,27 @@ class Player {
 	private function update() {
 		$mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
 
-		$result = $mysqli -> query("UPDATE 426FinalPlayers SET " . "title=" . "'" . $mysqli -> real_escape_string($this -> title) . "', " . "note=" . "'" . $mysqli -> real_escape_string($this -> note) . "', " . "project=" . "'" . 
-									$mysqli -> real_escape_string($this -> project) . "', " . "due_date=" . $dateString . ", " . "priority=" . $this -> priority . ", " . "complete=" . $completeString . " where id=" . $this -> id);
+		$result = $mysqli -> query("UPDATE 426FinalPlayers SET " . 
+									"FirstName=" . "'" . $mysqli -> real_escape_string($this -> firstName) . "', " . 
+									"LastName=" . "'" . $mysqli -> real_escape_string($this -> lastName) . "', " . 
+								    "Position=" . "'" . $mysqli -> real_escape_string($this -> position) . "', " .  
+								    "FirstSeason=" . $this -> firstSeason . ", " . 
+								    "LastSeason=" . $this -> lastSeason . ", " . 
+								    "HeightFeet=" . $this -> heightFeet . ", " . 
+								    "HeightInches=" . $this -> heightInches . ", " . 
+								    "Weight=" . $this -> weight . ", " . 
+								    "College=" . "'" . $mysqli -> real_escape_string($this -> college) . "', " . 
+									"BirthDate=" . "'" . $mysqli -> real_escape_string($this -> birthDate) . "', " . 
+								    " WHERE PlayerID=" . $this -> playerId);
 		return $result;
 	}
 
-	public function delete() {
+	public function deletePlayer() {
 		$mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
-		$mysqli -> query("delete from Todo where id = " . $this -> id);
+		$mysqli -> query("DELETE FROM 426FinalPlayers WHERE PlayerID = " . $this -> playerID);
 	}
 
 	public function getJSON() {
-		if ($this -> due_date == null) {
-			$dateString = null;
-		} else {
-			$dateString = $this -> due_date -> format('Y-m-d');
-		}
-
 		$json_obj = array('id' => $this -> id, 'title' => $this -> title, 'note' => $this -> note, 'project' => $this -> project, 'due_date' => $dateString, 'priority' => $this -> priority, 'complete' => $this -> complete);
 		return json_encode($json_obj);
 	}
