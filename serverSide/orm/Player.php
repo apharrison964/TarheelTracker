@@ -19,46 +19,22 @@ class Player
    // If any issue with this, check KMP's example code
 
   // Display all of the players (or that is what I want it to do)
-  public static function displayAll($firstName, $lastName, $position, $firstSeason, $lastSeason, $heightFeet,
-  				$heightInches, $weight, $college, $birthDate, $playerID) {
-    
+  public static function displayAll() {
     $mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
     $result = $mysqli->query("SELECT * FROM 426FinalPlayers);
     return $result;
   }
 
-  public static function findByID($id) {
+  // Could do cases where we worry about if we only have the first or last name, but not going to worry about it now
+  public static function findByName($firstName, $lastName) {
     $mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
-
-    $result = $mysqli->query("select * from Todo where id = " . $id);
+    $result = $mysqli->query("SELECT * FROM 426FinalPlayers WHERE FirstName = " . $firstName . "AND LastName = " . $lastName);
     if ($result) {
       if ($result->num_rows == 0) {
 	return null;
       }
-
-      $todo_info = $result->fetch_array();
-
-      if ($todo_info['due_date'] != null) {
-	$due_date = new DateTime($todo_info['due_date']);
-      } else {
-	$due_date = null;
-      }
-
-      if (!$todo_info['complete']) {
-	$complete = false;
-      } else {
-	$complete = true;
-      }
-
-      return new Todo(intval($todo_info['id']),
-		      $todo_info['title'],
-		      $todo_info['note'],
-		      $todo_info['project'],
-		      $due_date,
-		      intval($todo_info['priority']),
-		      $complete);
     }
-    return null;
+    return $result;
   }
 
   public static function getAllIDs() {
