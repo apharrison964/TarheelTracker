@@ -24,6 +24,35 @@ class Player {
 		return $result;
 	}
 	
+	public static function findByID($playerID) {
+    $mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
+
+    $result = $mysqli->query("SELECT * FROM 426FinalPlayers WHERE PlayerID = " . $playerID);
+	
+    if ($result) {
+      if ($result->num_rows == 0) {
+		return null;
+      }
+
+      $playerInfo = $result->fetch_array();
+
+      return new Todo (
+		      $playerInfo['FirstName'],
+		      $playerInfo['LastName'],
+		      $playerInfo['Position'],
+		      intval($playerInfo['FirstSeason']),
+		      intval($playerInfo['LastSeason']),
+		      intval($playerInfo['HeightFeet']),
+		      intval($playerInfo['HeightInches']),
+		      intval($playerInfo['Weight']),
+		      $playerInfo['College'],
+		      $playerInfo['BirthDate'],
+			  intval($playerInfo['PlayerID']));
+    }
+    return null;
+  }
+	
+	
 	// We could consider writing two helper methods in case a first or last is just given, but as the data is now it is
 	// probably not needed
 	public static function findByName($firstName, $lastName) {
