@@ -1,6 +1,5 @@
 var url_base = "https://htmlpreview.github.io/?https://github.com/apharrison964/TarheelTracker/blob/master/kmpORM";
-// JS isn't rendering because the URL base is connected to KMP's, can we do it with the previewer URL?
-// Can't do it in the preview, will have to put on Codiad
+// This is the RESTful JS file, how the RESTful calls are made, so we can do this (but will have to in Codiad)
 $(document).ready(function () {
 
 	$.ajax(url_base + "/todo.php",
