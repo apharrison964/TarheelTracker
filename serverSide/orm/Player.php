@@ -2,180 +2,167 @@
 date_default_timezone_set('America/New_York');
 
 class Player {
-  
-  private $firstName;
-  private $lastName;
-  private $position;
-  private $firstSeason;
-  private $lastSeason;
-  private $heightFeet;
-  private $heightInches;
-  private $weight;
-  private $college;
-  private $birthDate;
-  private $playerID;
-  
-  // If any issue with this, check KMP's example code
 
-  // Display all of the players (or that is what I want it to do)
-  public static function displayAll() {
-    $mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
-    $result = $mysqli->query("SELECT * FROM 426FinalPlayers");
-    return $result;
-  }
+	private $firstName;
+	private $lastName;
+	private $position;
+	private $firstSeason;
+	private $lastSeason;
+	private $heightFeet;
+	private $heightInches;
+	private $weight;
+	private $college;
+	private $birthDate;
+	private $playerID;
 
-  public static function findByName($firstName, $lastName) {
-    $mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
-    $result = $mysqli->query("SELECT * FROM 426FinalPlayers WHERE FirstName = '" . $firstName . "' AND LastName = '" . $lastName ."'");
-    if ($result) {
-      if ($result->num_rows == 0) {
-	return null;
-      }
-    }
-    return $result;
-  }
+	// If any issue with this, check KMP's example code
 
-  public static function getAllIDs() {
-    $mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
+	// Display all of the players (or that is what I want it to do)
+	public static function findAll() {
+		$mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
+		$result = $mysqli -> query("SELECT * FROM 426FinalPlayers");
+		return $result;
+	}
+	
+	// We could consider writing two helper methods in case a first or last is just given, but as the data is now it is
+	// probably not needed
+	public static function findByName($firstName, $lastName) {
+		$mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
+		$result = $mysqli -> query("SELECT * FROM 426FinalPlayers WHERE FirstName = '" . $firstName . "' AND LastName = '" . $lastName . "'");
+		if ($result) {
+			if ($result -> num_rows == 0) {
+				return null;
+			}
+		}
+		return $result;
+	}
 
-    $result = $mysqli->query("select id from Todo");
-    $id_array = array();
+	public static function getAllNames() {
+		$mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
 
-    if ($result) {
-      while ($next_row = $result->fetch_array()) {
-	$id_array[] = intval($next_row['id']);
-      }
-    }
-    return $id_array;
-  }
+		$result = $mysqli -> query("select id from Todo");
+		$id_array = array();
 
-  private function __construct($firstName, $lastName, $position, $firstSeason, $lastSeason, $heightFeet,
-  				$heightInches, $weight, $college, $birthDate, $playerID) {
-    
-    $this->firstName = $firstName;
-    $this->lastName = $lastName;
-    $this->position = $position;
-    $this->firstSeason = $firstSeason;
-    $this->lastSeason = $lastSeason;
-    $this->heightFeet = $heightFeet;
-    $this->heightInches = $heightInches;
-    $this->weight = $weight;
-    $this->college = $college;
-    $this->birthDate = $birthDate;
-    $this->playerID = $playerID;
-  }
+		if ($result) {
+			while ($next_row = $result -> fetch_array()) {
+				$id_array[] = intval($next_row['id']);
+			}
+		}
+		return $id_array;
+	}
 
-  public function getID() {
-    return $this->id;
-  }
+	private function __construct($firstName, $lastName, $position, $firstSeason, $lastSeason, 
+								 $heightFeet, $heightInches, $weight, $college, $birthDate, $playerID) {
 
-  public function getTitle() {
-    return $this->title;
-  }
+		$this -> firstName = $firstName;
+		$this -> lastName = $lastName;
+		$this -> position = $position;
+		$this -> firstSeason = $firstSeason;
+		$this -> lastSeason = $lastSeason;
+		$this -> heightFeet = $heightFeet;
+		$this -> heightInches = $heightInches;
+		$this -> weight = $weight;
+		$this -> college = $college;
+		$this -> birthDate = $birthDate;
+		$this -> playerID = $playerID;
+	}
 
-  public function getNote() {
-    return $this->note;
-  }
+	public function getID() {
+		return $this -> id;
+	}
 
-  public function getProject() {
-    return $this->project;
-  }
+	public function getTitle() {
+		return $this -> title;
+	}
 
-  public function getDueDate() {
-    return $this->due_date;
-  }
+	public function getNote() {
+		return $this -> note;
+	}
 
-  public function getPriority() {
-    return $this->priority;
-  }
+	public function getProject() {
+		return $this -> project;
+	}
 
-  public function isComplete() {
-    return $this->complete;
-  }
+	public function getDueDate() {
+		return $this -> due_date;
+	}
 
-  public function setTitle($title) {
-    $this->title = $title;
-    return $this->update();
-  }
+	public function getPriority() {
+		return $this -> priority;
+	}
 
-  public function setNote($note) {
-    $this->note = $note;
-    return $this->update();
-  }
+	public function isComplete() {
+		return $this -> complete;
+	}
 
-  public function setProject($project) {
-    $this->project = $project;
-    return $this->update();
-  }
+	public function setTitle($title) {
+		$this -> title = $title;
+		return $this -> update();
+	}
 
-  public function setDueDate($due_date) {
-    $this->due_date = $due_date;
-    return $this->update();
-  }
+	public function setNote($note) {
+		$this -> note = $note;
+		return $this -> update();
+	}
 
-  public function setPriority($priority) {
-    $this->priority = $priority;
-    return $this->update();
-  }
+	public function setProject($project) {
+		$this -> project = $project;
+		return $this -> update();
+	}
 
-  public function setComplete() {
-    $this->complete = true;
-    return $this->update();
-  }
+	public function setDueDate($due_date) {
+		$this -> due_date = $due_date;
+		return $this -> update();
+	}
 
-  public function clearComplete() {
-    $this->complete = false;
-    return $this->update();
-  }
+	public function setPriority($priority) {
+		$this -> priority = $priority;
+		return $this -> update();
+	}
 
-  private function update() {
-    $mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
+	public function setComplete() {
+		$this -> complete = true;
+		return $this -> update();
+	}
 
-    if ($this->due_date == null) {
-      $dateString = "null";
-    } else {
-      $dateString = "'" . $this->due_date->format('Y-m-d') . "'";
-    }
+	public function clearComplete() {
+		$this -> complete = false;
+		return $this -> update();
+	}
 
-    if ($this->complete) {
-      $completeString = "1";
-    } else {
-      $completeString = "0";
-    }
+	private function update() {
+		$mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
 
-    $result = $mysqli->query("update Todo set " .
-			     "title=" .
-			     "'" . $mysqli->real_escape_string($this->title) . "', " .
-			     "note=" .
-			     "'" . $mysqli->real_escape_string($this->note) . "', " .
-			     "project=" .
-			     "'" . $mysqli->real_escape_string($this->project) . "', " .
-			     "due_date=" . $dateString . ", " .
-			     "priority=" . $this->priority . ", " .
-			     "complete=" . $completeString . 
-			     " where id=" . $this->id);
-    return $result;
-  }
+		if ($this -> due_date == null) {
+			$dateString = "null";
+		} else {
+			$dateString = "'" . $this -> due_date -> format('Y-m-d') . "'";
+		}
 
-  public function delete() {
-    $mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
-    $mysqli->query("delete from Todo where id = " . $this->id);
-  }
+		if ($this -> complete) {
+			$completeString = "1";
+		} else {
+			$completeString = "0";
+		}
 
-  public function getJSON() {
-    if ($this->due_date == null) {
-      $dateString = null;
-    } else {
-      $dateString = $this->due_date->format('Y-m-d');
-    }
+		$result = $mysqli -> query("update Todo set " . "title=" . "'" . $mysqli -> real_escape_string($this -> title) . "', " . "note=" . "'" . $mysqli -> real_escape_string($this -> note) . "', " . "project=" . "'" . $mysqli -> real_escape_string($this -> project) . "', " . "due_date=" . $dateString . ", " . "priority=" . $this -> priority . ", " . "complete=" . $completeString . " where id=" . $this -> id);
+		return $result;
+	}
 
-    $json_obj = array('id' => $this->id,
-		      'title' => $this->title,
-		      'note' => $this->note,
-		      'project' => $this->project,
-		      'due_date' => $dateString,
-		      'priority' => $this->priority,
-		      'complete' => $this->complete);
-    return json_encode($json_obj);
-  }
+	public function delete() {
+		$mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
+		$mysqli -> query("delete from Todo where id = " . $this -> id);
+	}
+
+	public function getJSON() {
+		if ($this -> due_date == null) {
+			$dateString = null;
+		} else {
+			$dateString = $this -> due_date -> format('Y-m-d');
+		}
+
+		$json_obj = array('id' => $this -> id, 'title' => $this -> title, 'note' => $this -> note, 'project' => $this -> project, 'due_date' => $dateString, 'priority' => $this -> priority, 'complete' => $this -> complete);
+		return json_encode($json_obj);
+	}
+
 }
