@@ -15,23 +15,23 @@ class Player
   private $college;
   private $birthDate;
 
-  public static function create($playerID, $firstName, $lastName, $position, $firstSeason, $lastSeason, $heightFeet,
-  				$heightInches, $weight, $college, $birthDate) {
+  public static function create($firstName, $lastName, $position, $firstSeason, $lastSeason, $heightFeet,
+  				$heightInches, $weight, $college, $birthDate, $playerID) {
     $mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
 
-    if ($due_date == null) {
-      $dateString = "null";
-    } else {
-      $dateString = "'" . $due_date->format('Y-m-d') . "'";
-    }
+    //if ($due_date == null) {
+    //  $dateString = "null";
+    //} else {
+    //  $dateString = "'" . $due_date->format('Y-m-d') . "'";
+    //}
 
-    if ($complete) {
-      $completeString = "1";
-    } else {
-      $completeString = "0";
-    }
+    //if ($complete) {
+    //  $completeString = "1";
+    //} else {
+    //  $completeString = "0";
+    //}
 
-    $result = $mysqli->query("insert into Todo values (0, " .
+    $result = $mysqli->query("INSERT INTO 426FinalPlayers values (
 			     "'" . $mysqli->real_escape_string($title) . "', " .
 			     "'" . $mysqli->real_escape_string($note) . "', " .
 			     "'" . $mysqli->real_escape_string($project) . "', " .
@@ -41,7 +41,8 @@ class Player
     
     if ($result) {
       $id = $mysqli->insert_id;
-      return new Todo($id, $title, $note, $project, $due_date, $priority, $complete);
+      return new Player($firstName, $lastName, $position, $firstSeason, $lastSeason, $heightFeet,
+  				$heightInches, $weight, $college, $birthDate, $playerID);
     }
     return null;
   }
@@ -94,14 +95,20 @@ class Player
     return $id_array;
   }
 
-  private function __construct($id, $title, $note, $project, $due_date, $priority, $complete) {
-    $this->id = $id;
-    $this->title = $title;
-    $this->note = $note;
-    $this->project = $project;
-    $this->due_date = $due_date;
-    $this->priority = $priority;
-    $this->complete = $complete;
+  private function __construct($firstName, $lastName, $position, $firstSeason, $lastSeason, $heightFeet,
+  				$heightInches, $weight, $college, $birthDate, $playerID) {
+    
+    $this->firstName = $firstName;
+    $this->lastName = $lastName;
+    $this->position = $position;
+    $this->firstSeason = $firstSeason;
+    $this->lastSeason = $lastSeason;
+    $this->heightFeet = $heightFeet;
+    $this->heightInches = $heightInches;
+    $this->weight = $weight;
+    $this->college = $college;
+    $this->birthDate = $birthDate;
+    $this->playerID = $playerID;
   }
 
   public function getID() {
