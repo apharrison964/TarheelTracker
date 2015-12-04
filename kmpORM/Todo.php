@@ -1,5 +1,5 @@
 <?php
-// Might not need since we are using API for db
+// This part is the "class", and is what the ORM implements, so anothe PHP file calls it
 date_default_timezone_set('America/New_York');
 //KMP
 class Todo
