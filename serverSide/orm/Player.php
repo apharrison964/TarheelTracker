@@ -67,28 +67,48 @@ class Player {
 		$this -> playerID = $playerID;
 	}
 
-	public function getID() {
-		return $this -> id;
+	public function getFirstName() {
+		return $this -> firstName;
 	}
 
-	public function getTitle() {
-		return $this -> title;
+	public function getLastName() {
+		return $this -> lastName;
 	}
 
-	public function getNote() {
-		return $this -> note;
+	public function getPosition() {
+		return $this -> position;
 	}
 
-	public function getProject() {
-		return $this -> project;
+	public function getFirstSeason() {
+		return $this -> firstSeason;
 	}
 
-	public function getDueDate() {
-		return $this -> due_date;
+	public function getLastSeason() {
+		return $this -> lastSeason;
 	}
 
-	public function getPriority() {
-		return $this -> priority;
+	public function getHeightFeet() {
+		return $this -> heightFeet;
+	}
+	
+	public function getHeightInches() {
+		return $this -> heightInches;
+	}
+	
+	public function getWeight() {
+		return $this -> weight;
+	}
+	
+	public function getCollege() {
+		return $this -> college;
+	}
+	
+	public function getBirthDate() {
+		return $this -> birthDate;
+	}
+	
+	public function getPlayerID() {
+		return $this -> playerID;
 	}
 
 	public function isComplete() {
