@@ -52,7 +52,7 @@ class Player {
 	}
 
 	private function __construct($firstName, $lastName, $position, $firstSeason, $lastSeason, 
-								 $heightFeet, $heightInches, $weight, $college, $birthDate, $playerID) {
+				     $heightFeet, $heightInches, $weight, $college, $birthDate, $playerID) {
 
 		$this -> firstName = $firstName;
 		$this -> lastName = $lastName;
@@ -171,17 +171,17 @@ class Player {
 		$mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
 
 		$result = $mysqli -> query("UPDATE 426FinalPlayers SET " . 
-									"FirstName=" . "'" . $mysqli -> real_escape_string($this -> firstName) . "', " . 
-									"LastName=" . "'" . $mysqli -> real_escape_string($this -> lastName) . "', " . 
-								    "Position=" . "'" . $mysqli -> real_escape_string($this -> position) . "', " .  
-								    "FirstSeason=" . $this -> firstSeason . ", " . 
-								    "LastSeason=" . $this -> lastSeason . ", " . 
-								    "HeightFeet=" . $this -> heightFeet . ", " . 
-								    "HeightInches=" . $this -> heightInches . ", " . 
-								    "Weight=" . $this -> weight . ", " . 
-								    "College=" . "'" . $mysqli -> real_escape_string($this -> college) . "', " . 
-									"BirthDate=" . "'" . $mysqli -> real_escape_string($this -> birthDate) . "', " . 
-								    " WHERE PlayerID=" . $this -> playerId);
+				       	   "FirstName=" . "'" . $mysqli -> real_escape_string($this -> firstName) . "', " . 
+					   "LastName=" . "'" . $mysqli -> real_escape_string($this -> lastName) . "', " . 
+					   "Position=" . "'" . $mysqli -> real_escape_string($this -> position) . "', " .  
+					   "FirstSeason=" . $this -> firstSeason . ", " . 
+					   "LastSeason=" . $this -> lastSeason . ", " . 
+					   "HeightFeet=" . $this -> heightFeet . ", " . 
+					   "HeightInches=" . $this -> heightInches . ", " . 
+					   "Weight=" . $this -> weight . ", " . 
+					   "College=" . "'" . $mysqli -> real_escape_string($this -> college) . "', " . 
+					   "BirthDate=" . "'" . $mysqli -> real_escape_string($this -> birthDate) . "', " . 
+					   " WHERE PlayerID=" . $this -> playerId);
 		return $result;
 	}
 
@@ -192,8 +192,8 @@ class Player {
 
 	public function getJSON() {
 		$json_obj = array('FirstName' => $this -> firstName, 'LastName' => $this -> lastName, 'Position' => $this -> position, 'FirstSeason' => $this -> firstSeason, 
-						  'LastSeason' => $this -> lastSeason, 'HeightFeet' => $this -> heightFeet, 'HeightInches' => $this -> heightInches, 
-						  'Weight' => $this -> weight, 'College' => $this -> college, 'BirthDate' => $this -> birthDate);
+				  'LastSeason' => $this -> lastSeason, 'HeightFeet' => $this -> heightFeet, 'HeightInches' => $this -> heightInches, 
+				   'Weight' => $this -> weight, 'College' => $this -> college, 'BirthDate' => $this -> birthDate);
 		return json_encode($json_obj);
 	}
 
