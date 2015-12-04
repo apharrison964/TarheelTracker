@@ -3,7 +3,7 @@ date_default_timezone_set('America/New_York');
 
 class Player
 {
-  private $playerID;
+  
   private $firstName;
   private $lastName;
   private $position;
@@ -14,37 +14,17 @@ class Player
   private $weight;
   private $college;
   private $birthDate;
+  private $playerID;
+  
+   // If any issue with this, check KMP's example code
 
-  public static function create($firstName, $lastName, $position, $firstSeason, $lastSeason, $heightFeet,
+  // Display all of the players (or that is what I want it to do)
+  public static function displayAll($firstName, $lastName, $position, $firstSeason, $lastSeason, $heightFeet,
   				$heightInches, $weight, $college, $birthDate, $playerID) {
-    $mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
-
-    //if ($due_date == null) {
-    //  $dateString = "null";
-    //} else {
-    //  $dateString = "'" . $due_date->format('Y-m-d') . "'";
-    //}
-
-    //if ($complete) {
-    //  $completeString = "1";
-    //} else {
-    //  $completeString = "0";
-    //}
-
-    $result = $mysqli->query("INSERT INTO 426FinalPlayers values (
-			     "'" . $mysqli->real_escape_string($title) . "', " .
-			     "'" . $mysqli->real_escape_string($note) . "', " .
-			     "'" . $mysqli->real_escape_string($project) . "', " .
-			     $dateString . ", " .
-			     $priority . ", " .
-			     $completeString . ")");
     
-    if ($result) {
-      $id = $mysqli->insert_id;
-      return new Player($firstName, $lastName, $position, $firstSeason, $lastSeason, $heightFeet,
-  				$heightInches, $weight, $college, $birthDate, $playerID);
-    }
-    return null;
+    $mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
+    $result = $mysqli->query("SELECT * FROM 426FinalPlayers);
+    return $result;
   }
 
   public static function findByID($id) {
