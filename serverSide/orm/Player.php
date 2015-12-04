@@ -1,8 +1,7 @@
 <?php
 date_default_timezone_set('America/New_York');
 
-class Player
-{
+class Player {
   
   private $firstName;
   private $lastName;
@@ -16,18 +15,18 @@ class Player
   private $birthDate;
   private $playerID;
   
-   // If any issue with this, check KMP's example code
+  // If any issue with this, check KMP's example code
 
   // Display all of the players (or that is what I want it to do)
   public static function displayAll() {
     $mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
-    $result = $mysqli->query("SELECT * FROM 426FinalPlayers);
+    $result = $mysqli->query("SELECT * FROM 426FinalPlayers");
     return $result;
   }
 
   public static function findByName($firstName, $lastName) {
     $mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
-    $result = $mysqli->query("SELECT * FROM 426FinalPlayers WHERE FirstName = " . $firstName . "AND LastName = " . $lastName);
+    $result = $mysqli->query("SELECT * FROM 426FinalPlayers WHERE FirstName = '" . $firstName . "' AND LastName = '" . $lastName ."'");
     if ($result) {
       if ($result->num_rows == 0) {
 	return null;
