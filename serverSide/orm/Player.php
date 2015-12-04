@@ -47,7 +47,7 @@ class Player {
 			      intval($playerInfo['Weight']),
 			      $playerInfo['College'],
 			      $playerInfo['BirthDate'],
-				  intval($playerInfo['PlayerID']));
+			      intval($playerInfo['PlayerID']));
 	    }
 	    return null;
       }
