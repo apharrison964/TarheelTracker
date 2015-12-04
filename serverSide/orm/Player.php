@@ -37,18 +37,18 @@ class Player {
 		return $result;
 	}
 
-	public static function getAllNames() {
+	public static function getAllLastNames() {
 		$mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
 
-		$result = $mysqli -> query("select id from Todo");
-		$id_array = array();
+		$result = $mysqli -> query("SELECT LastName FROM 426FinalPlayers");
+		$lastName_array = array();
 
 		if ($result) {
 			while ($next_row = $result -> fetch_array()) {
-				$id_array[] = intval($next_row['id']);
+				$lastName_array[] = intval($next_row['lastName']);
 			}
 		}
-		return $id_array;
+		return $lastName_array;
 	}
 
 	private function __construct($firstName, $lastName, $position, $firstSeason, $lastSeason, 
