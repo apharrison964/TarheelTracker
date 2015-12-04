@@ -1,6 +1,6 @@
 <?php
 
-require_once('orm/Todo.php');
+require_once('orm/Player.php');
 
 $path_components = explode('/', $_SERVER['PATH_INFO']);
 
