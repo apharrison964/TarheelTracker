@@ -130,38 +130,48 @@ class Player {
 		$this -> firstSeason = $firstSeason;
 		return $this -> update();
 	}
-
-	public function setPriority($priority) {
-		$this -> priority = $priority;
+	
+	public function setLastSeason($LastSeason) {
+		$this -> LasttSeason = $LasttSeason;
 		return $this -> update();
 	}
 
-	public function setComplete() {
-		$this -> complete = true;
+	public function setHeightFeet($heightFeet) {
+		$this -> heightFeet = $heightFeet;
 		return $this -> update();
 	}
 
-	public function clearComplete() {
-		$this -> complete = false;
+	public function setHeightInches($heightInches) {
+		$this -> heightInches = $heightInches;
 		return $this -> update();
 	}
+
+	public function setWeight($weight) {
+		$this -> weight = $weight;
+		return $this -> update();
+	}
+
+	public function setCollege($college) {
+		$this -> college = $college;
+		return $this -> update();
+	}
+	
+	public function setBirthDate($birthDate) {
+		$this -> birthDate = $birthDate;
+		return $this -> update();
+	}
+	
+	public function setPlayerID($playerID) {
+		$this -> playerID = $playerID;
+		return $this -> update();
+	}
+	
 
 	private function update() {
 		$mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
 
-		if ($this -> due_date == null) {
-			$dateString = "null";
-		} else {
-			$dateString = "'" . $this -> due_date -> format('Y-m-d') . "'";
-		}
-
-		if ($this -> complete) {
-			$completeString = "1";
-		} else {
-			$completeString = "0";
-		}
-
-		$result = $mysqli -> query("update Todo set " . "title=" . "'" . $mysqli -> real_escape_string($this -> title) . "', " . "note=" . "'" . $mysqli -> real_escape_string($this -> note) . "', " . "project=" . "'" . $mysqli -> real_escape_string($this -> project) . "', " . "due_date=" . $dateString . ", " . "priority=" . $this -> priority . ", " . "complete=" . $completeString . " where id=" . $this -> id);
+		$result = $mysqli -> query("UPDATE 426FinalPlayers SET " . "title=" . "'" . $mysqli -> real_escape_string($this -> title) . "', " . "note=" . "'" . $mysqli -> real_escape_string($this -> note) . "', " . "project=" . "'" . 
+									$mysqli -> real_escape_string($this -> project) . "', " . "due_date=" . $dateString . ", " . "priority=" . $this -> priority . ", " . "complete=" . $completeString . " where id=" . $this -> id);
 		return $result;
 	}
 
