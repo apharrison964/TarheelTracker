@@ -111,27 +111,23 @@ class Player {
 		return $this -> playerID;
 	}
 
-	public function isComplete() {
-		return $this -> complete;
-	}
-
-	public function setTitle($title) {
-		$this -> title = $title;
+	public function setFirstName($firstName) {
+		$this -> firstName = $firstName;
 		return $this -> update();
 	}
 
-	public function setNote($note) {
-		$this -> note = $note;
+	public function setLastName($lastName) {
+		$this -> lastName = $lastName;
 		return $this -> update();
 	}
 
-	public function setProject($project) {
-		$this -> project = $project;
+	public function setPosition($position) {
+		$this -> position = $position;
 		return $this -> update();
 	}
 
-	public function setDueDate($due_date) {
-		$this -> due_date = $due_date;
+	public function setFirstSeason($firstSeason) {
+		$this -> firstSeason = $firstSeason;
 		return $this -> update();
 	}
 
