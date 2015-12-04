@@ -80,6 +80,20 @@ class Player {
 		return $lastName_array;
 	}
 
+   public static function getAllIDs() {
+   		$mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
+
+    	$result = $mysqli->query("SELECT PlayerID FROM 426FinalPlayers");
+    	$playerIDArray = array();
+
+	    if ($result) {
+	      while ($next_row = $result->fetch_array()) {
+				$playerIDArray[] = intval($next_row['PlayerID']);
+	      }
+	    }
+	    return $playerIDArray;
+  }
+
 	private function __construct($firstName, $lastName, $position, $firstSeason, $lastSeason, 
 				     $heightFeet, $heightInches, $weight, $college, $birthDate, $playerID) {
 

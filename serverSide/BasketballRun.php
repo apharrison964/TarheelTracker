@@ -17,21 +17,21 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
       ($path_components[1] != "")) {
 
     // Interpret <id> as integer
-    $todo_id = intval($path_components[1]);
+    $playerClass = intval($path_components[1]);
 
     // Look up object via ORM
-    $todo = Todo::findByID($todo_id);
+    $player = Player::findByID($playerClass);
 
-    if ($todo == null) {
+    if ($player == null) {
       // Todo not found.
       header("HTTP/1.0 404 Not Found");
-      print("Todo id: " . $todo_id . " not found.");
+      print("Player ID: " . $playerClass . " not found.");
       exit();
     }
 
     // Check to see if deleting
     if (isset($_REQUEST['delete'])) {
-      $todo->delete();
+      $player->delete();
       header("Content-type: application/json");
       print(json_encode(true));
       exit();
@@ -40,14 +40,14 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
     // Normal lookup.
     // Generate JSON encoding as response
     header("Content-type: application/json");
-    print($todo->getJSON());
+    print($player->getJSON());
     exit();
 
   }
 
   // ID not specified, then must be asking for index
   header("Content-type: application/json");
-  print(json_encode(Todo::getAllIDs()));
+  print(json_encode(Player::getAllIDs()));
   exit();
 
 } else if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -59,13 +59,13 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
       ($path_components[1] != "")) {
 
     //Interpret <id> as integer and look up via ORM
-    $todo_id = intval($path_components[1]);
-    $todo = Todo::findByID($todo_id);
+    $playerClass = intval($path_components[1]);
+    $player = Player::findByID($playerClass);
 
-    if ($todo == null) {
-      // Todo not found.
+    if ($player == null) {
+      // Player not found.
       header("HTTP/1.0 404 Not Found");
-      print("Todo id: " . $todo_id . " not found while attempting update.");
+      print("Player ID: " . $playerClass . " not found while attempting update.");
       exit();
     }
 
@@ -118,30 +118,30 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 
     // Update via ORM
     if ($new_title) {
-      $todo->setTitle($new_title);
+      $player->setTitle($new_title);
     }
     if ($new_note != false) {
-      $todo->setNote($new_note);
+      $player->setNote($new_note);
     }
     if ($new_project != false) {
-      $todo->setProject($new_project);
+      $player->setProject($new_project);
     }
     if ($new_due_date) {
-      $todo->setDueDate($new_date_obj);
+      $player->setDueDate($new_date_obj);
     }
     if ($new_priority != false) {
-      $todo->setPriority($new_priority);
+      $player->setPriority($new_priority);
     }
     
     if (!$new_complete) {
-      $todo->clearComplete();
+      $player->clearComplete();
     } else {
-      $todo->setComplete();
+      $player->setComplete();
     }
 
     // Return JSON encoding of updated Todo
     header("Content-type: application/json");
-    print($todo->getJSON());
+    print($player->getJSON());
     exit();
   } else {
 
