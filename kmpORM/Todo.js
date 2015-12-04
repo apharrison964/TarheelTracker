@@ -1,4 +1,4 @@
-//KMP
+// FIGURED OUT WHAT THIS DOES: This is the actual JS for the project, how the "notebook" is displayed
 var Todo = function(todo_json) {
     this.id = todo_json.id;
     this.title = todo_json.title;
