@@ -1,38 +1,43 @@
 <?php
 date_default_timezone_set('America/New_York');
 
-class Todo
+class Player
 {
-  private $id;
-  private $title;
-  private $note;
-  private $project;
-  private $due_date;
-  private $priority;
-  private $complete;
+  private $playerID;
+  private $firstName;
+  private $lastName;
+  private $position;
+  private $firstSeason;
+  private $lastSeason;
+  private $heightFeet;
+  private $heightInches;
+  private $weight;
+  private $college;
+  private $birthDate;
 
-  public static function create($title, $note, $project, $due_date, $priority, $complete) {
+  public static function create($playerID, $firstName, $lastName, $position, $firstSeason, $lastSeason, $heightFeet,
+  				$heightInches, $weight, $college, $birthDate) {
     $mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
 
     if ($due_date == null) {
-      $dstr = "null";
+      $dateString = "null";
     } else {
-      $dstr = "'" . $due_date->format('Y-m-d') . "'";
+      $dateString = "'" . $due_date->format('Y-m-d') . "'";
     }
 
     if ($complete) {
-      $cstr = "1";
+      $completeString = "1";
     } else {
-      $cstr = "0";
+      $completeString = "0";
     }
 
     $result = $mysqli->query("insert into Todo values (0, " .
 			     "'" . $mysqli->real_escape_string($title) . "', " .
 			     "'" . $mysqli->real_escape_string($note) . "', " .
 			     "'" . $mysqli->real_escape_string($project) . "', " .
-			     $dstr . ", " .
+			     $dateString . ", " .
 			     $priority . ", " .
-			     $cstr . ")");
+			     $completeString . ")");
     
     if ($result) {
       $id = $mysqli->insert_id;
@@ -166,15 +171,15 @@ class Todo
     $mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
 
     if ($this->due_date == null) {
-      $dstr = "null";
+      $dateString = "null";
     } else {
-      $dstr = "'" . $this->due_date->format('Y-m-d') . "'";
+      $dateString = "'" . $this->due_date->format('Y-m-d') . "'";
     }
 
     if ($this->complete) {
-      $cstr = "1";
+      $completeString = "1";
     } else {
-      $cstr = "0";
+      $completeString = "0";
     }
 
     $result = $mysqli->query("update Todo set " .
@@ -184,9 +189,9 @@ class Todo
 			     "'" . $mysqli->real_escape_string($this->note) . "', " .
 			     "project=" .
 			     "'" . $mysqli->real_escape_string($this->project) . "', " .
-			     "due_date=" . $dstr . ", " .
+			     "due_date=" . $dateString . ", " .
 			     "priority=" . $this->priority . ", " .
-			     "complete=" . $cstr . 
+			     "complete=" . $completeString . 
 			     " where id=" . $this->id);
     return $result;
   }
@@ -198,16 +203,16 @@ class Todo
 
   public function getJSON() {
     if ($this->due_date == null) {
-      $dstr = null;
+      $dateString = null;
     } else {
-      $dstr = $this->due_date->format('Y-m-d');
+      $dateString = $this->due_date->format('Y-m-d');
     }
 
     $json_obj = array('id' => $this->id,
 		      'title' => $this->title,
 		      'note' => $this->note,
 		      'project' => $this->project,
-		      'due_date' => $dstr,
+		      'due_date' => $dateString,
 		      'priority' => $this->priority,
 		      'complete' => $this->complete);
     return json_encode($json_obj);
