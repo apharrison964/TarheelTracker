@@ -25,7 +25,6 @@ class Player
     return $result;
   }
 
-  // Could do cases where we worry about if we only have the first or last name, but not going to worry about it now
   public static function findByName($firstName, $lastName) {
     $mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
     $result = $mysqli->query("SELECT * FROM 426FinalPlayers WHERE FirstName = " . $firstName . "AND LastName = " . $lastName);
