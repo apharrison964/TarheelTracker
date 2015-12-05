@@ -81,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
     }
 	
 	$new_lastName = false;
-    if (isset($_REQUEST['LasttName'])) {
+    if (isset($_REQUEST['Last  Name'])) {
       $new_title = trim($_REQUEST['LastName']);
       if ($new_lastName == "") {
 	header("HTTP/1.0 400 Bad Request");
