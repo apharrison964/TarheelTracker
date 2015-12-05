@@ -70,12 +70,22 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
     }
 
     // Validate values
-    $new_title = false;
-    if (isset($_REQUEST['title'])) {
-      $new_title = trim($_REQUEST['title']);
-      if ($new_title == "") {
+    $new_firstName = false;
+    if (isset($_REQUEST['FirstName'])) {
+      $new_title = trim($_REQUEST['FirstName']);
+      if ($new_firstName == "") {
 	header("HTTP/1.0 400 Bad Request");
-	print("Bad title");
+	print("Bad first name");
+	exit();
+      }
+    }
+	
+	$new_lastName = false;
+    if (isset($_REQUEST['LasttName'])) {
+      $new_title = trim($_REQUEST['LastName']);
+      if ($new_lastName == "") {
+	header("HTTP/1.0 400 Bad Request");
+	print("Bad last name");
 	exit();
       }
     }
