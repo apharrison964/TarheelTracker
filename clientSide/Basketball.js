@@ -1,13 +1,13 @@
-var url_base = "http://wwwp.cs.unc.edu/Courses/comp426-f15/kmp/lec22/server-side";
+var url_base = "http://wwwp.cs.unc.edu/Courses/comp426-f15/users/apharri3/Codiad/workspace/finalProject/serverSide";
 
 $(document).ready(function () {
 
-	$.ajax(url_base + "/todo.php",
+	$.ajax(url_base + "/PlayerRun.php",
 	       {type: "GET",
 		       dataType: "json",
-		       success: function(todo_ids, status, jqXHR) {
-		       for (var i=0; i<todo_ids.length; i++) {
-			   load_todo_item(todo_ids[i]);
+		       success: function(playerClass, status, jqXHR) {
+		       for (var i=0; i<playerClass.length; i++) {
+			   loadPlayerItem(playerClass[i]);
 		       }
 		   }
 	       });
@@ -68,7 +68,7 @@ $(document).ready(function () {
     });
 
 
-var load_todo_item = function (id) {
+var loadPlayerItem = function (id) {
     $.ajax(url_base + "/todo.php/" + id,
 {type: "GET",
  dataType: "json",
