@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
       ($path_components[1] != "")) {
 
     // Interpret <id> as integer
-    $playerClass = intval($path_components[1]);
+    $playerClass = ($path_components[1]);
 
     // Look up object via ORM
     $player = Player::findByFastName($playerClass);
