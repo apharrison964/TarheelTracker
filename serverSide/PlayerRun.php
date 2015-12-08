@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
       ($path_components[1] != "")) {
 
     // Interpret <id> as integer
-    $playerClass = ($path_components[1]);
+    $playerClass = intval($path_components[1]);
 
     // Look up object via ORM
     $player = Player::findByFastName($playerClass);
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 
   // ID not specified, then must be asking for index
   header("Content-type: application/json");
-  print(json_encode(Player::getAllIDs()));
+  print(json_encode(Player::getAllLastNames()));
   exit();
 
 } else if ($_SERVER['REQUEST_METHOD'] == "POST") {
