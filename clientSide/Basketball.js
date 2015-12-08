@@ -13,16 +13,16 @@ $(document).ready(function () {
 	       });
 
 
-	$('#new_todo_form').on('submit',
+	$('#teamForm').on('submit',
 			       function (e) {
 				   e.preventDefault();
-				   $.ajax(url_base + "/todo.php",
+				   $.ajax(url_base + "/PlayerRun.php",
 					  {type: "POST",
 						  dataType: "json",
 						  data: $(this).serialize(),
 						  success: function(todo_json, status, jqXHR) {
-						  var t = new Todo(todo_json);
-						  $('#todo_list').append(t.makeCompactDiv());
+						  var p = new Player(todo_json);
+						  $('#todo_list').append(p.makeCompactDiv());
 					      },
 						  error: function(jqXHR, status, error) {
 						  alert(jqXHR.responseText);
