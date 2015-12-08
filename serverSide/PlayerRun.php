@@ -16,11 +16,11 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
   if ((count($path_components) >= 2) &&
       ($path_components[1] != "")) {
 
-    // Interpret <id> as integer
-    $playerClass = intval($path_components[1]);
+    // First value in the array is firstName, $playerClass should be the names
+    $playerClass = ($path_components[1]);
 
     // Look up object via ORM
-    $player = Player::findByFastName($playerClass);
+    $player = Player::findByLastName($playerClass);
 
     if ($player == null) {
       // Todo not found.
