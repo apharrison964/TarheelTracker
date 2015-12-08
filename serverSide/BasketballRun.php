@@ -71,8 +71,8 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 
     // Validate values
     $new_firstName = false;
-    if (isset($_REQUEST['FirstName'])) {
-      $new_title = trim($_REQUEST['FirstName']);
+    if (isset($_REQUEST['firstName'])) {
+      $new_firstName = trim($_REQUEST['firstName']);
       if ($new_firstName == "") {
 	header("HTTP/1.0 400 Bad Request");
 	print("Bad first name");
@@ -80,9 +80,9 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
       }
     }
 	
-	$new_lastName = false;
-    if (isset($_REQUEST['Last  Name'])) {
-      $new_title = trim($_REQUEST['LastName']);
+    $new_lastName = false;
+    if (isset($_REQUEST['lastName'])) {
+      $new_lastName = trim($_REQUEST['lastName']);
       if ($new_lastName == "") {
 	header("HTTP/1.0 400 Bad Request");
 	print("Bad last name");
@@ -90,63 +90,94 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
       }
     }
 
-    $new_note = false;
-    if (isset($_REQUEST['note'])) {
-      $new_note = trim($_REQUEST['note']);
+    $new_position = false;
+    if (isset($_REQUEST['position'])) {
+      $new_position = trim($_REQUEST['position']);
     }
 
-    $new_project = false;
-    if (isset($_REQUEST['project'])) {
-      $new_project = trim($_REQUEST['project']);
+    $new_firstSeason = false;
+    if (isset($_REQUEST['firstSeason'])) {
+      $new_firstSeason = trim($_REQUEST['firstSeason']);
     }
 
-    $new_due_date = false;
-    $new_date_obj = null;
-    if (isset($_REQUEST['due_date'])) {
-      $new_due_date = true;
-      $date_str = trim($_REQUEST['due_date']);
-      if ($date_str != "") {
-	$new_date_obj = new DateTime($date_str);
-      }
+    $new_lastSeason = false;
+    if (isset($_REQUEST['lastSeason'])) {
+      $new_firstSeason = trim($_REQUEST['lastSeason']);
     }
 
-    $new_priority = false;
-    if (isset($_REQUEST['priority'])) {
-      $new_priority = intval($_REQUEST['priority']);
-      if (!($new_priority > 0 && $new_priority <= 10)) {
-	header("HTTP/1.0 400 Bad Request");
-	print("Priority value out of range.");
-	exit();
-      }
+    $new_heightFeet = false;
+    if (isset($_REQUEST['heightFeet'])) {
+      $new_heightFeet = trim($_REQUEST['heightFeet']);
     }
 
-    if (isset($_REQUEST['complete'])) {
-      $new_complete = true;
-    } else {
-      $new_complete = false;
+    $new_heightInches = false;
+    if (isset($_REQUEST['heightInches'])) {
+      $new_heightInches = trim($_REQUEST['heightInches']);
+    }
+    
+    $new_weight = false;
+    if (isset($_REQUEST['weight'])) {
+      $new_weight = trim($_REQUEST['weight']);
+    }
+    
+    $new_college = false;
+    if (isset($_REQUEST['college'])) {
+      $new_college = trim($_REQUEST['college']);
+    }
+    
+    $new_birthDate = false;
+    if (isset($_REQUEST['birthDate'])) {
+      $new_birthDate = trim($_REQUEST['birthDate']);
+    }
+    
+    $new_playerID = false;
+    if (isset($_REQUEST['playerID'])) {
+      $new_playerID = trim($_REQUEST['playerID']);
     }
 
     // Update via ORM
-    if ($new_title) {
-      $player->setTitle($new_title);
-    }
-    if ($new_note != false) {
-      $player->setNote($new_note);
-    }
-    if ($new_project != false) {
-      $player->setProject($new_project);
-    }
-    if ($new_due_date) {
-      $player->setDueDate($new_date_obj);
-    }
-    if ($new_priority != false) {
-      $player->setPriority($new_priority);
+    if ($new_firstName) {
+      $firstName->setFirstName($new_firstName);
     }
     
-    if (!$new_complete) {
-      $player->clearComplete();
-    } else {
-      $player->setComplete();
+    if ($new_lastName) {
+      $lastName->setLastName($new_lastName);
+    }
+    
+    if ($new_position) {
+      $position->setPosition($new_position);
+    }
+    
+    if ($new_firstSeason) {
+      $firstSeason->setFirstSeason($new_firstSeason);
+    }
+    
+    if ($new_lastSeason) {
+      $lastSeason->setLastSeason($new_lastSeason);
+    }
+    
+    if ($new_heightFeet) {
+      $heightFeet->setHeightFeet($new_heightFeet);
+    }
+    
+    if ($new_heightInches) {
+      $heightInches->setHeightInches($new_heightInches);
+    }
+    
+    if ($new_weight) {
+      $weight->setWeight($new_weight);
+    }
+    
+    if ($new_college) {
+      $college->setCollege($new_college);
+    }
+    
+    if ($new_birthDate) {
+      $birthDate->setBirthDate($new_birthDate);
+    }
+    
+    if ($new_playerID) {
+      $playerID->setPlayerID($new_playerID);
     }
 
     // Return JSON encoding of updated Todo
@@ -155,7 +186,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
     exit();
   } else {
 
-    // Creating a new Todo item
+    // Creating a new Player item
 
     // Validate values
     if (!isset($_REQUEST['title'])) {
