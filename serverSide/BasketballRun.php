@@ -189,67 +189,164 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
     // Creating a new Player item
 
     // Validate values
-    if (!isset($_REQUEST['title'])) {
+    if (!isset($_REQUEST['firstName'])) {
       header("HTTP/1.0 400 Bad Request");
-      print("Missing title");
+      print("Missing first name");
       exit();
     }
     
-    $title = trim($_REQUEST['title']);
-    if ($title == "") {
+    $firstName = trim($_REQUEST['firstName']);
+    if (firstName == "") {
       header("HTTP/1.0 400 Bad Request");
-      print("Bad title");
+      print("Bad first name");
       exit();
     }
 
-    $note = "";
-    if (isset($_REQUEST['note'])) {
-      $note = trim($_REQUEST['note']);
+    if (!isset($_REQUEST['lastName'])) {
+      header("HTTP/1.0 400 Bad Request");
+      print("Missing last name");
+      exit();
     }
-
-    $project = "";
-    if (isset($_REQUEST['project'])) {
-      $project = trim($_REQUEST['project']);
+    
+    $lastName = trim($_REQUEST['lastName']);
+    if (lastName == "") {
+      header("HTTP/1.0 400 Bad Request");
+      print("Bad last name");
+      exit();
     }
-
-    $due_date = null;
-    if (isset($_REQUEST['due_date'])) {
-      $date_str = trim($_REQUEST['due_date']);
-      if ($date_str != "") {
-	$due_date = new DateTime($date_str);
-      }
+    
+    if (!isset($_REQUEST['position'])) {
+      header("HTTP/1.0 400 Bad Request");
+      print("Missing position value");
+      exit();
     }
-
-    $priority = 1;
-    if (isset($_REQUEST['priority'])) {
-      $priority = intval($_REQUEST['priority']);
-      if (!($priority > 0 && $priority <= 10)) {
-	header("HTTP/1.0 400 Bad Request");
-	print("Priority value out of range");
-	exit();
-      }
+    
+    $position = trim($_REQUEST['position']);
+    if (position == "") {
+      header("HTTP/1.0 400 Bad Request");
+      print("Bad  position value");
+      exit();
     }
-
-    if (isset($_REQUEST['complete'])) {
-      $complete = true;
-    } else {
-      $complete = false;
+    
+    if (!isset($_REQUEST['firstSeason'])) {
+      header("HTTP/1.0 400 Bad Request");
+      print("Missing first season");
+      exit();
+    }
+    
+    $firstSeason = trim($_REQUEST['firstSeason']);
+    if (firstSeason == "") {
+      header("HTTP/1.0 400 Bad Request");
+      print("Bad first season");
+      exit();
+    }
+    
+    if (!isset($_REQUEST['lastSeason'])) {
+      header("HTTP/1.0 400 Bad Request");
+      print("Missing first season");
+      exit();
+    }
+    
+    $lastSeason = trim($_REQUEST['lastSeason']);
+    if (lastSeason == "") {
+      header("HTTP/1.0 400 Bad Request");
+      print("Bad season value");
+      exit();
+    }
+    
+    if (!isset($_REQUEST['heightFeet'])) {
+      header("HTTP/1.0 400 Bad Request");
+      print("Missing height feet");
+      exit();
+    }
+    
+    $heightFeet = trim($_REQUEST['heightFeet']);
+    if (heightFeet == "") {
+      header("HTTP/1.0 400 Bad Request");
+      print("Bad height feet");
+      exit();
+    }
+    
+    if (!isset($_REQUEST['heightInches'])) {
+      header("HTTP/1.0 400 Bad Request");
+      print("Missing height inches");
+      exit();
+    }
+    
+    $heightInches = trim($_REQUEST['heightInches']);
+    if (heightInches == "") {
+      header("HTTP/1.0 400 Bad Request");
+      print("Bad height inches");
+      exit();
+    }
+    
+    if (!isset($_REQUEST['weight'])) {
+      header("HTTP/1.0 400 Bad Request");
+      print("Missing weight");
+      exit();
+    }
+    
+    $weight = trim($_REQUEST['weight']);
+    if (weight == "") {
+      header("HTTP/1.0 400 Bad Request");
+      print("Bad weight");
+      exit();
+    }
+    
+    if (!isset($_REQUEST['college'])) {
+      header("HTTP/1.0 400 Bad Request");
+      print("Missing college");
+      exit();
+    }
+    
+    $college = trim($_REQUEST['college']);
+    if (college == "") {
+      header("HTTP/1.0 400 Bad Request");
+      print("Bad college");
+      exit();
+    }
+    
+    if (!isset($_REQUEST['birthDate'])) {
+      header("HTTP/1.0 400 Bad Request");
+      print("Missing birth date");
+      exit();
+    }
+    
+    $birthDate = trim($_REQUEST['birthDate']);
+    if (birthDate == "") {
+      header("HTTP/1.0 400 Bad Request");
+      print("Bad birth date");
+      exit();
+    }
+    
+    if (!isset($_REQUEST['playerID'])) {
+      header("HTTP/1.0 400 Bad Request");
+      print("Missing playerID");
+      exit();
+    }
+    
+    $title = trim($_REQUEST['playerID']);
+    if (playerID == "") {
+      header("HTTP/1.0 400 Bad Request");
+      print("Bad playerID");
+      exit();
     }
 
 
     // Create new Todo via ORM
-    $new_todo = Todo::create($title, $note, $project, $due_date, $priority, $complete);
+    $new_player = Player::create($firstName, $lastName, $position, $firstSeason, $lastSeason, 
+    		             $heightFeet, $heightInches, $weight, $college, $birthDate, $playerID);
 
     // Report if failed
-    if ($new_todo == null) {
+    if ($new_player == null) {
       header("HTTP/1.0 500 Server Error");
-      print("Server couldn't create new todo.");
+      print("Server couldn't create new player.");
       exit();
     }
     
     //Generate JSON encoding of new Todo
     header("Content-type: application/json");
-    print($new_todo->getJSON());
+    print($new_player->getJSON());
     exit();
   }
 }
