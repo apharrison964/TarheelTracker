@@ -55,9 +55,9 @@ class Player {
 	
 	// We could consider writing two helper methods in case a first or last is just given, but as the data is now it is
 	// probably not needed
-	public static function findByName($firstName, $lastName) {
+	public static function findByFirstName($firstName) {
 		$mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
-		$result = $mysqli -> query("SELECT * FROM 426FinalPlayers WHERE FirstName = '" . $firstName . "' AND LastName = '" . $lastName . "'");
+		$result = $mysqli -> query("SELECT * FROM 426FinalPlayers WHERE FirstName = '" . $firstName . "'");
 		if ($result) {
 			if ($result -> num_rows == 0) {
 				return null;
