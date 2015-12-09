@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
     $playerClass = ($path_components[1]);
 
     // Look up object via ORM
-    $player = Player::findByLastName($playerClass);
+    $player = Player::findByFirstName($playerClass);
 
     if ($player == null) {
       // Todo not found.
