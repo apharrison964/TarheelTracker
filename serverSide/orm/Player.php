@@ -74,7 +74,7 @@ class Player {
 
 		if ($result) {
 			while ($next_row = $result -> fetch_array()) {
-				$lastName_array[] = intval($next_row['lastName']);
+				$lastName_array[] = ($next_row['lastName']);
 			}
 		}
 		return $lastName_array;
