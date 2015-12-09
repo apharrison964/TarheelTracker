@@ -52,12 +52,12 @@ $(document).ready(function () {
     });
 
 
-var loadPlayerItem = function (id) {
+var loadPlayerItem = function (playerID) {
     $.ajax(url_base + "/PlayerRun.php/" + playerID,
 {type: "GET",
  dataType: "json",
- success: function(todo_json, status, jqXHR) {
-	var p = new Todo(todo_json);
+ success: function(player_json, status, jqXHR) {
+	var p = new Player(player_json);
 	$('#playerTable').append(p.makeCompactDiv());
     }
 });
