@@ -117,3 +117,13 @@
 
       </div>
     </div>
+
+
+            <!-- No Basketball for now
+            <script type="text/javascript" src="../js/bouncingball.js"></script>
+            <form>
+              <input id="ballButton" onclick="checkButton()" type="button" value="Animate Basketball" />
+            </form>
+            <div id="basketball" style="position: relative; top: 72px;">
+              <img src="images/ball.png" alt="Basketball" />
+            </div> -->
