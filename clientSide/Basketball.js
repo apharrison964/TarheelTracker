@@ -13,7 +13,7 @@ var Player = function(player_json) {
     this.playerID = player_json.playerID;
 };
 
-Todo.prototype.makeCompactDiv = function() {
+Player.prototype.makeCompactDiv = function() {
     var compactDiv = $("<div></div>");
     compactDiv.addClass('player');
 
