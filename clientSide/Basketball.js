@@ -71,6 +71,6 @@ Todo.prototype.makeEditDiv = function() {
     ediv_form.append("<button type='submit'>Save</button><button type='button' class='cancel'>Cancel</button>");
     ediv.append(ediv_form);
     
-    ediv.data('todo', this);
+    ediv.data('player', this);
     return ediv;
 }
