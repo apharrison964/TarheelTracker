@@ -29,13 +29,6 @@ $(document).ready(function () {
 					      }});
 			       });
 
-	$('#playerForm').on('dblclick',
-			   'div.todo',
-			   null,
-			   function (e) {
-			       var p = $(this).data('player');
-			       $(this).replaceWith(p.makeEditDiv());
-			   });
 
 	$('#playerForm').on('submit',
 			   'form.edit_form',
@@ -55,15 +48,6 @@ $(document).ready(function () {
 					      error: function(jqXHR, status, error) {
 					      alert(jqXHR.responseText);
 					  }});
-			   });
-
-	$('#playerForm').on('click',
-			   'form.edit_form > button.cancel',
-			   null,
-			   function (e) {
-			       var edit_div = $(this).parent().parent();
-			       var p = edit_div.data('player');
-			       edit_div.replaceWith(p.makeCompactDiv());
 			   });
     });
 
