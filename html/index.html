@@ -179,7 +179,25 @@
       <div class="row featurette">
         <div class="col-md-7">
           <h2 class="featurette-heading">And lastly, SUBMIT. <span class="text-muted">Checkmate.</span></h2>
-          <p class="lead">Al the data you could want is populated below. If you want other information run through the data again and see what comes up. </p>
+          <p class="lead">All the data you could want is populated below. If you want other information run through the data again and see what comes up. </p>
+            <form id="teamForm" class="form-inline" role="form" style="text-align: center;">
+              <!-- Submit Form
+              ================================================== -->
+              <div class="form-group">
+                <label for="text">Opponent Name:</label>
+                <input type="text" class="form-control" id="text" placeholder="Enter Opponent Name">
+              </div>
+              <div class="form-group">
+                <label for="year">Select Year:</label>
+                <select class="form-control" id="year">
+                  <option>2016</option>
+                  <option>2015</option>
+                  <option>2014</option>
+                  <option>2013</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
         </div>
         <div class="col-md-5">
           <h1 class="featurette-image img-responsive center-block" style="font-family: 'Roboto', sans-serif;font-size: 400px;font-weight: 400;border-style: SOLID;border-width: thick;">#3</h1>
@@ -198,23 +216,6 @@
     </div>
   </div>
 </div>
-
-  <form id="teamForm" class="form-inline" role="form" style="text-align: center;">
-    <div class="form-group">
-      <label for="text">Opponent Name:</label>
-      <input type="text" class="form-control" id="text" placeholder="Enter Opponent Name">
-    </div>
-    <div class="form-group">
-      <label for="year">Select Year:</label>
-      <select class="form-control" id="year">
-        <option>2016</option>
-        <option>2015</option>
-        <option>2014</option>
-        <option>2013</option>
-      </select>
-    </div>
-    <button type="submit" class="btn btn-default">Submit</button>
-  </form>
 
 <!-- /END THE STEPS -->
 
