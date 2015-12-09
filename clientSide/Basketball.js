@@ -37,7 +37,7 @@ $(document).ready(function () {
 			       e.preventDefault();
 			       var edit_div = $(this).parent();
 			       var p = edit_div.data('todo');
-			       $.ajax(url_base + "/todo.php/" + p.playerID,
+			       $.ajax(url_base + "/PlayerRun.php/" + p.playerID,
 				      {type: "POST",
 					      dataType: "json",
 					      data: $(this).serialize(),
