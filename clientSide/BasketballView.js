@@ -4,7 +4,7 @@ console.log("What is going on");
 console.log("Does this help at all");
 
 $(document).ready(function () {
-$("#playerTable").html("<table border='1'><tr><td>Field1</td><td>Field2</td></tr><tr><td>Content1</td><td>Content2</td></tr></table>");
+$("#playerTable").html("<table border='1'><tr><td>First Name</td><td>Last Name</td></tr><tr><td>Content1</td><td>Content2</td></tr></table>");
 console.log("Hey Madi what is up you are on the internet");
 	$.ajax(url_base + "/PlayerRun.php",
 	       {type: "GET",
