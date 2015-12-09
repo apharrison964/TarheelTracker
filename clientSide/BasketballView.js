@@ -1,10 +1,11 @@
 var url_base = "http://wwwp.cs.unc.edu/Courses/comp426-f15/users/apharri3/Codiad/workspace/finalProject/serverSide";
 console.log("What is going on");
-$("#playerTable").html("<table border='1'><tr><td>Field1</td><td>Field2</td></tr><tr><td>Content1</td><td>Content2</td></tr></table>");
+
 console.log("Does this help at all");
 
 $(document).ready(function () {
-
+$("#playerTable").html("<table border='1'><tr><td>Field1</td><td>Field2</td></tr><tr><td>Content1</td><td>Content2</td></tr></table>");
+console.log("Hey Madi what is up you are on the internet");
 	$.ajax(url_base + "/PlayerRun.php",
 	       {type: "GET",
 		       dataType: "json",
