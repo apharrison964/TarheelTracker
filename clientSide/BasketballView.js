@@ -1,11 +1,8 @@
 var url_base = "http://wwwp.cs.unc.edu/Courses/comp426-f15/users/apharri3/Codiad/workspace/finalProject/serverSide";
-console.log("What is going on");
-
-console.log("Does this help at all");
 
 $(document).ready(function () {
-$("#playerTable").html("<table border='1'><tr><td>First Name</td><td>Last Name</td></tr><tr><td>Shaquille</td><td>O'Neil</td></tr><tr><td>Kareem</td><td>Abdul-Jabar</td></tr><tr><td>Dirk</td><td>Nowitzki</td></tr><tr><td>Michael</td><td>Jordan</td></tr></table>");
-console.log("Hey Madi what is up you are on the internet");
+$("#playerTable").html("<table border='1'><tr><td id="firstName">First Name</td><td id="lastName">Last Name</td></tr><tr><td id="shaq">Shaquille</td><td id="oneil">O'Neil</td></tr><tr><td id="kareem">Kareem</td><td id="abdul">Abdul-Jabar</td></tr><tr><td id="dirk">Dirk</td><td id="nowit">Nowitzki</td></tr><tr><td id="mike">Michael</td><td id="jordan">Jordan</td></tr></table>");
+
 	$.ajax(url_base + "/PlayerRun.php",
 	       {type: "GET",
 		       dataType: "json",
