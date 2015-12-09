@@ -37,17 +37,17 @@ class Player {
 	        $playerInfo = $result->fetch_array();
 	
 	        return new Todo (
-			      $playerInfo['FirstName'],
-			      $playerInfo['LastName'],
-			      $playerInfo['Position'],
-			      intval($playerInfo['FirstSeason']),
-			      intval($playerInfo['LastSeason']),
-			      intval($playerInfo['HeightFeet']),
-			      intval($playerInfo['HeightInches']),
-			      intval($playerInfo['Weight']),
-			      $playerInfo['College'],
-			      $playerInfo['BirthDate'],
-			      intval($playerInfo['PlayerID']));
+			      $playerInfo['firstName'],
+			      $playerInfo['lastName'],
+			      $playerInfo['position'],
+			      intval($playerInfo['firstSeason']),
+			      intval($playerInfo['lastSeason']),
+			      intval($playerInfo['heightFeet']),
+			      intval($playerInfo['heightInches']),
+			      intval($playerInfo['weight']),
+			      $playerInfo['college'],
+			      $playerInfo['birthDate'],
+			      intval($playerInfo['playerID']));
 	    }
 	    return null;
       }
@@ -88,7 +88,7 @@ class Player {
 
 	    if ($result) {
 	      while ($next_row = $result->fetch_array()) {
-				$playerIDArray[] = intval($next_row['PlayerID']);
+				$playerIDArray[] = intval($next_row['playerID']);
 	      }
 	    }
 	    return $playerIDArray;
