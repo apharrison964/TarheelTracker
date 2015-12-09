@@ -14,10 +14,10 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
   // /todo.php/<id>
 
   if ((count($path_components) >= 2) &&
-      ($path_components[1] != "")) {
+      ($path_components[11] != "")) {
 
     // First value in the array is firstName, $playerClass should be the names
-    $playerClass = ($path_components[1]);
+    $playerClass = ($path_components[11]);
 
     // Look up object via ORM
     $player = Player::findByFirstName($playerClass);
@@ -56,10 +56,10 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 
   // Following matches /todo.php/<id> form
   if ((count($path_components) >= 2) &&
-      ($path_components[1] != "")) {
+      ($path_components[11] != "")) {
 
     //Interpret <id> as integer and look up via ORM
-    $playerClass = intval($path_components[1]);
+    $playerClass = intval($path_components[11]);
     $player = Player::findByID($playerClass);
 
     if ($player == null) {
