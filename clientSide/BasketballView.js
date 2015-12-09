@@ -1,5 +1,7 @@
 var url_base = "http://wwwp.cs.unc.edu/Courses/comp426-f15/users/apharri3/Codiad/workspace/finalProject/serverSide";
 
+$("#playerTable").html("<table border='1'><tr><td>Field1</td><td>Field2</td></tr><tr><td>Content1</td><td>Content2</td></tr></table>");
+
 $(document).ready(function () {
 
 	$.ajax(url_base + "/PlayerRun.php",
