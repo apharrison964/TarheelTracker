@@ -1,4 +1,4 @@
-
+console.log("TEST");
 var Player = function(player_json) {
     this.firstName = player_json.firstName;
     this.lastName = player_json.lastName;
