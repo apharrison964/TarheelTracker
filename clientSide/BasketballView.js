@@ -2,7 +2,7 @@ var url_base = "http://wwwp.cs.unc.edu/Courses/comp426-f15/users/apharri3/Codiad
 
 $(document).ready(function () {
 //$("#playerTable").html("<table border='1'><tr><td>First Name</td><td>Last Name</td></tr><tr><td>Shaquille</td><td>O'Neil</td></tr><tr><td>Kareem</td><td>Abdul-Jabar</td></tr><tr><td>Dirk</td><td>Nowitzki</td></tr><tr><td>Michael</td><td>Jordan</td></tr></table>");
-$("#playerTable").html("<div class="table-responsive"> <table class="table"> <thead> <tr> <th>First Name</th> <th>Last Name</th> <th>Lastname</th> </tr></thead> <tbody> <tr> <td>Shaquille</td><td>O'Neil</td></tr><tr> <td>Kareem</td><td>Abdul-Jabar</td></tr><tr> <td>Dirk</td><td>Nowitzki</td></tr><tr> <td>Michael</td><td>Jordan</td></tr></tbody> </table> </div>");
+$("#playerTable").html("<table class="table"> <thead> <tr> <th>First Name</th> <th>Last Name</th> <th>Lastname</th> </tr></thead> <tbody> <tr> <td>Shaquille</td><td>O'Neil</td></tr><tr> <td>Kareem</td><td>Abdul-Jabar</td></tr><tr> <td>Dirk</td><td>Nowitzki</td></tr><tr> <td>Michael</td><td>Jordan</td></tr></tbody> </table>");
 
 	$.ajax(url_base + "/PlayerRun.php",
 	       {type: "GET",
