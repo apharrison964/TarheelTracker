@@ -32,7 +32,7 @@ Player.prototype.makeCompactDiv = function() {
     return contentDiv;
 };
 
-Todo.prototype.makeEditDiv = function() {
+Player.prototype.makeEditDiv = function() {
     var ediv = $("<div></div>");
 
     var ediv_form = $("<form></form>");
