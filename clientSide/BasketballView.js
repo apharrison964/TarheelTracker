@@ -38,6 +38,10 @@ var loadPlayerItem = function (playerID) {
 });
 }
 
+function showDiv() {
+   document.getElementById('welcomeDiv').style.display = "block";
+}
+
 function showJordanDiv() {
    document.getElementById('JordanDiv').style.display = "block";
 }
