@@ -38,15 +38,15 @@ var loadPlayerItem = function (playerID) {
 });
 }
 
-function showDiv() {
+function showJordanDiv() {
    document.getElementById('JordanDiv').style.display = "block";
 }
-function showDiv() {
+function showShaqDiv() {
    document.getElementById('ShaqDiv').style.display = "block";
 }
-function showDiv() {
+function showKareemDiv() {
    document.getElementById('KareemDiv').style.display = "block";
 }
-function showDiv() {
+function showDirkDiv() {
    document.getElementById('DirkDiv').style.display = "block";
 }
