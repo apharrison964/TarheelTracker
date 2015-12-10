@@ -36,3 +36,16 @@ var loadPlayerItem = function (playerID) {
 	    }
 });
 }
+
+function showDiv() {
+   document.getElementById('JordanDiv').style.display = "block";
+}
+function showDiv() {
+   document.getElementById('ShaqDiv').style.display = "block";
+}
+function showDiv() {
+   document.getElementById('KareemDiv').style.display = "block";
+}
+function showDiv() {
+   document.getElementById('DirkDiv').style.display = "block";
+}
