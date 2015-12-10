@@ -79,29 +79,6 @@
     </div>
     
     <hr class="featurette-divider">
-  <script>
-    function showDiv() {
-       document.getElementById('welcomeDiv').style.display = "block";
-    }
-    function showJordanDiv() {
-       document.getElementById('JordanDiv').style.display = "block";
-    }
-    function showShaqDiv() {
-       document.getElementById('ShaqDiv').style.display = "block";
-    }
-    function showKareemDiv() {
-       document.getElementById('KareemDiv').style.display = "block";
-    }
-    function showDirkDiv() {
-       document.getElementById('DirkDiv').style.display = "block";
-    }
-</script>
-  <div id="welcomeDiv"  style="display:none;" class="answer_list" > WELCOME</div>
-  <input type="button" name="answer" value="Show Div" onclick="showDiv()" />
-  
-    
-  <div id="JordanDiv"  style="display:none;" class="answer_list" > WELCOME</div>
-  <input type="button" name="answer" value="Jordan Div" onclick="showJordanDiv()" />
     
     <!-- STEP 1
     ================================================== -->
@@ -132,7 +109,21 @@
     </div>
     
     
-    
+  <script>
+    function showJordanDiv() {
+       document.getElementById('JordanDiv').style.display = "block";
+    }
+    function showShaqDiv() {
+       document.getElementById('ShaqDiv').style.display = "block";
+    }
+    function showKareemDiv() {
+       document.getElementById('KareemDiv').style.display = "block";
+    }
+    function showDirkDiv() {
+       document.getElementById('DirkDiv').style.display = "block";
+    }
+  </script>
+  
     <!-- Player Carousel
     ================================================== -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -151,6 +142,8 @@
               <h1 style="font-family: 'Roboto', sans-serif;font-size: 70px;font-weight: 400;border-style: SOLID;border-width: thick;margin-bottom: 20px;">KAREEM ABDUL-JABAR</h1>
               <!-- <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p> -->
               <p><a class="btn btn-lg btn-default" href="#" role="button">Select Player</a></p>
+              <div id="JordanDiv"  style="display:none;" class="answer_list" > WELCOME</div>
+              <input type="button" name="answer" value="Jordan Div" onclick="showJordanDiv()" />
             </div>
           </div>
         </div>
