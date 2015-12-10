@@ -1,34 +1,24 @@
 <?php
-
 require_once('orm/Player.php');
-
 $path_components = explode('/', $_SERVER['PATH_INFO']);
-
 // Note that since extra path info starts with '/'
 // First element of path_components is always defined and always empty.
-
 if ($_SERVER['REQUEST_METHOD'] == "GET") {
   // GET means either instance look up, index generation, or deletion
-
   // Following matches instance URL in form
   // /todo.php/<id>
-
   if ((count($path_components) >= 2) &&
-      ($path_components[11] != "")) {
-
+      ($path_components[1] != "")) {
     // First value in the array is firstName, $playerClass should be the names
-    $playerClass = ($path_components[11]);
-
+    $playerClass = ($path_components[1]);
     // Look up object via ORM
-    $player = Player::findByFirstName($playerClass);
-
+    $player = Player::findByLastName($playerClass);
     if ($player == null) {
       // Todo not found.
       header("HTTP/1.0 404 Not Found");
       print("Player ID: " . $playerClass . " not found.");
       exit();
     }
-
     // Check to see if deleting
     if (isset($_REQUEST['delete'])) {
       $player->delete();
@@ -36,39 +26,30 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
       print(json_encode(true));
       exit();
     } 
-
     // Normal lookup.
     // Generate JSON encoding as response
     header("Content-type: application/json");
     print($player->getJSON());
     exit();
-
   }
-
   // ID not specified, then must be asking for index
   header("Content-type: application/json");
   print(json_encode(Player::getAllLastNames()));
   exit();
-
 } else if ($_SERVER['REQUEST_METHOD'] == "POST") {
-
   // Either creating or updating
-
   // Following matches /todo.php/<id> form
   if ((count($path_components) >= 2) &&
-      ($path_components[11] != "")) {
-
+      ($path_components[1] != "")) {
     //Interpret <id> as integer and look up via ORM
-    $playerClass = intval($path_components[11]);
+    $playerClass = intval($path_components[1]);
     $player = Player::findByID($playerClass);
-
     if ($player == null) {
       // Player not found.
       header("HTTP/1.0 404 Not Found");
       print("Player ID: " . $playerClass . " not found while attempting update.");
       exit();
     }
-
     // Validate values
     $new_firstName = false;
     if (isset($_REQUEST['firstName'])) {
@@ -89,27 +70,22 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 	exit();
       }
     }
-
     $new_position = false;
     if (isset($_REQUEST['position'])) {
       $new_position = trim($_REQUEST['position']);
     }
-
     $new_firstSeason = false;
     if (isset($_REQUEST['firstSeason'])) {
       $new_firstSeason = trim($_REQUEST['firstSeason']);
     }
-
     $new_lastSeason = false;
     if (isset($_REQUEST['lastSeason'])) {
       $new_firstSeason = trim($_REQUEST['lastSeason']);
     }
-
     $new_heightFeet = false;
     if (isset($_REQUEST['heightFeet'])) {
       $new_heightFeet = trim($_REQUEST['heightFeet']);
     }
-
     $new_heightInches = false;
     if (isset($_REQUEST['heightInches'])) {
       $new_heightInches = trim($_REQUEST['heightInches']);
@@ -134,7 +110,6 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
     if (isset($_REQUEST['playerID'])) {
       $new_playerID = trim($_REQUEST['playerID']);
     }
-
     // Update via ORM
     if ($new_firstName) {
       $firstName->setFirstName($new_firstName);
@@ -179,15 +154,12 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
     if ($new_playerID) {
       $playerID->setPlayerID($new_playerID);
     }
-
     // Return JSON encoding of updated Todo
     header("Content-type: application/json");
     print($player->getJSON());
     exit();
   } else {
-
     // Creating a new Player item
-
     // Validate values
     if (!isset($_REQUEST['firstName'])) {
       header("HTTP/1.0 400 Bad Request");
@@ -201,7 +173,6 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
       print("Bad first name");
       exit();
     }
-
     if (!isset($_REQUEST['lastName'])) {
       header("HTTP/1.0 400 Bad Request");
       print("Missing last name");
@@ -331,12 +302,9 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
       print("Bad playerID");
       exit();
     }
-
-
     // Create new Todo via ORM
     $new_player = Player::create($firstName, $lastName, $position, $firstSeason, $lastSeason, 
     		             $heightFeet, $heightInches, $weight, $college, $birthDate, $playerID);
-
     // Report if failed
     if ($new_player == null) {
       header("HTTP/1.0 500 Server Error");
@@ -350,11 +318,8 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
     exit();
   }
 }
-
 // If here, none of the above applied and URL could
 // not be interpreted with respect to RESTful conventions.
-
 header("HTTP/1.0 400 Bad Request");
 print("Did not understand URL");
-
 ?>
