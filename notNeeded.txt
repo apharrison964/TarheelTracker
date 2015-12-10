@@ -146,3 +146,5 @@
               </div>
               <button type="submit" class="btn btn-default">Submit</button>
             </form>
+
+              <p><a class="btn btn-lg btn-default" href="#" role="button">Select Player</a></p>
