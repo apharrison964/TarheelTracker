@@ -17,3 +17,5 @@ Left to do:
     Do JS RESTful file
     Do something with JS
     Finalize prettiness
+    
+Allie is the best ever, I think that commits are cooler than a streak
