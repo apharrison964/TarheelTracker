@@ -15,16 +15,3 @@ Color References for the page:
     #b8e0fd - Light Blue
     #f4f4f4 - Light Grey 
     
-Left to do:
-    Finish ORM
-    Do JS RESTful file
-    Do something with JS
-    Finalize prettiness
-
-This is the beginning of something beautiful - from some movie, I don't remember which one
-
-Be someone who makes everyone feel like a somebody
-
-Beauty begins the moment you decide to be yourself
-
-Birthdays are good for you. The more you have the more you live.
