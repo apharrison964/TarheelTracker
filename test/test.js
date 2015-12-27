@@ -2,7 +2,7 @@ var url_base = "http://wwwp.cs.unc.edu/Courses/comp426-f15/users/apharri3/Codiad
 //////////In Test Mode//////////
 
 $(document).ready(function () {
-    /*var url = window.location.protocol + "://" + window.location.host + "/" + window.location.pathname;*/
+  
     $( '#submit' ).click(function(e) {
         var type = $('#methodselect option:selected').val();
 
