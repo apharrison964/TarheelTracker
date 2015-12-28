@@ -1,47 +1,42 @@
 <?php
 require_once('orm/Player.php');
 $path_components = explode('/', $_SERVER['PATH_INFO']);
-// Note that since extra path info starts with '/'
-// First element of path_components is always defined and always empty.
+
 if ($_SERVER['REQUEST_METHOD'] == "GET") {
-  // GET means either instance look up, index generation, or deletion
-  // Following matches instance URL in form
-  // /todo.php/<id>
+ 
   if ((count($path_components) >= 2) &&
       ($path_components[1] != "")) {
-    // First value in the array is firstName, $playerClass should be the names
+    
     $playerClass = ($path_components[1]);
-    // Look up object via ORM
+    
     $player = Player::findByLastName($playerClass);
     if ($player == null) {
-      // Todo not found.
+   
       header("HTTP/1.0 404 Not Found");
       print("Player ID: " . $playerClass . " not found.");
       exit();
     }
-    // Check to see if deleting
+    
     if (isset($_REQUEST['delete'])) {
       $player->delete();
       header("Content-type: application/json");
       print(json_encode(true));
       exit();
     } 
-    // Normal lookup.
-    // Generate JSON encoding as response
+    
     header("Content-type: application/json");
     print($player->getJSON());
     exit();
   }
-  // ID not specified, then must be asking for index
+ 
   header("Content-type: application/json");
   print(json_encode(Player::getAllLastNames()));
   exit();
 } else if ($_SERVER['REQUEST_METHOD'] == "POST") {
-  // Either creating or updating
-  // Following matches /todo.php/<id> form
+  
   if ((count($path_components) >= 2) &&
       ($path_components[1] != "")) {
-    //Interpret <id> as integer and look up via ORM
+    
     $playerClass = intval($path_components[1]);
     $player = Player::findByID($playerClass);
     if ($player == null) {
@@ -154,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
     if ($new_playerID) {
       $playerID->setPlayerID($new_playerID);
     }
-    // Return JSON encoding of updated Todo
+    
     header("Content-type: application/json");
     print($player->getJSON());
     exit();
@@ -302,7 +297,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
       print("Bad playerID");
       exit();
     }
-    // Create new Todo via ORM
+
     $new_player = Player::create($firstName, $lastName, $position, $firstSeason, $lastSeason, 
     		             $heightFeet, $heightInches, $weight, $college, $birthDate, $playerID);
     // Report if failed
@@ -312,7 +307,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
       exit();
     }
     
-    //Generate JSON encoding of new Todo
+   
     header("Content-type: application/json");
     print($new_player->getJSON());
     exit();
