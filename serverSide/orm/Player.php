@@ -12,8 +12,7 @@ class Player {
 	private $college;
 	private $birthDate;
 	private $playerID;
-	// If any issue with this, check KMP's example code
-	// Display all of the players (or that is what I want it to do)
+	
 	public static function findAll() {
 		$mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
 		$result = $mysqli -> query("SELECT * FROM 426FinalPlayers");
@@ -48,8 +47,7 @@ class Player {
       }
 	
 	
-	// We could consider writing two helper methods in case a first or last is just given, but as the data is now it is
-	// probably not needed
+
 	public static function findByName($firstName, $lastName) {
 		$mysqli = new mysqli("classroom.cs.unc.edu", "apharri3", "CH@ngemenow99Please!apharri3", "apharri3db");
 		$result = $mysqli -> query("SELECT * FROM 426FinalPlayers WHERE FirstName = '" . $firstName . "' AND LastName = '" . $lastName . "'");
