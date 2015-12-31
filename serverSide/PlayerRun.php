@@ -32,7 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
   header("Content-type: application/json");
   print(json_encode(Player::getAllLastNames()));
   exit();
-} else if ($_SERVER['REQUEST_METHOD'] == "POST") {
+} 
+
+else if ($_SERVER['REQUEST_METHOD'] == "POST") {
   
   if ((count($path_components) >= 2) &&
       ($path_components[1] != "")) {
