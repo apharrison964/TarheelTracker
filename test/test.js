@@ -1,5 +1,5 @@
 var url_base = "http://wwwp.cs.unc.edu/Courses/comp426-f15/users/apharri3/Codiad/workspace/final/serverSide";
-//////////In Test Mode//////////
+
 
 $(document).ready(function () {
   
