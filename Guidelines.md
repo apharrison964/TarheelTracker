@@ -17,3 +17,5 @@ Each team will get 5 minutes per person for their presentations. Every team memb
 
 Teams will also be expected to create written documentation describing the project, it's architecture, database schema, 
 and other aspects of the project's design. Guidelines on written documentation will be forthcoming.
+
+
